@@ -6,3 +6,8 @@ Did 5 API calls with 100 size to get retrieve data efficientlly
 
 Got Response header with /api/v1/dataset?batch=true
 /api/v1/stats 
+
+
+Generated hash 256 for entire response for request and compatred it with header for Etag that guranteed integrity of data.
+
+Also tried generating hash for records only but it does not match

@@ -6,10 +6,15 @@ Console.WriteLine("Assessment Started");
 
 // await discovery.Run();
 
-var fetchData = new FetchData(client);
+// var fetchData = new FetchData(client);
 
-await fetchData.Run();
+// await fetchData.Run();
 
 //var submission = new Submission(client);
 
 //await submission.Run();
+
+
+var generateHash = new GenerateHash();
+
+await generateHash.Run();
