@@ -13,6 +13,8 @@ public class Discovery
         {
             //"/api/v1/health",
             "/api/v1/dataset",
+            "/api/v1/stats",
+            "/api/v1/dataset?batch=true&range=0-99"
             //"/api/v1/submit",
             // "/api/v1/data",
             // "/api/v1/records",
@@ -46,7 +48,7 @@ public class Discovery
                     $"\n Checking {endpoint}");
 
                 var result =
-                    await _client.GetAsync(endpoint);
+                    await _client.GetAsync(endpoint+"?page=1&&page_size=500");
 
                 await FileHelper.SaveAsync(
                     $"data/raw/{Sanitize(endpoint)}.txt",
