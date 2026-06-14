@@ -15,9 +15,9 @@ for (int page = 1; page <= 5; page++)
         await File.ReadAllTextAsync(
             $"data/raw/page{page}.json");
 
-var hash = SHA256.HashData(Encoding.UTF8.GetBytes(json));
+//var hash = SHA256.HashData(Encoding.UTF8.GetBytes(json));
 
-Console.WriteLine(Convert.ToHexString(hash).ToLower());
+//Console.WriteLine(Convert.ToHexString(hash).ToLower());
 
 
 
@@ -43,12 +43,25 @@ Console.WriteLine(Convert.ToHexString(hash).ToLower());
 //         }
     }
 
+
     
 }
 
-Console.WriteLine(
-    $"Loaded {allRecords.Count} records");
-    }
+
+    using var sha = SHA256.Create();
+
+foreach (var record in allRecords)
+{
+    var bytes = Convert.FromBase64String(record);
+
+    sha.TransformBlock(bytes, 0, bytes.Length, null, 0);
+}
+
+sha.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
+
+ var hash = Convert.ToHexString(sha.Hash!).ToLower();
+Console.WriteLine(hash);
+}
 }
 
 

@@ -6,15 +6,15 @@ Console.WriteLine("Assessment Started");
 
 // await discovery.Run();
 
-// var fetchData = new FetchData(client);
+ //var fetchData = new FetchData(client);
 
-// await fetchData.Run();
+ //await fetchData.Run();
 
-//var submission = new Submission(client);
+var submission = new Submission(client);
 
-//await submission.Run();
+await submission.Submit("content_hash","6335aaa16b92684ae24161e0633dff8bc5b784cbd51e92f36a180b264bb2d4a1","all notes are in notes folder layer1 file");
 
 
-var generateHash = new GenerateHash();
+ var generateHash = new GenerateHash();
 
-await generateHash.Run();
+ await generateHash.Run();

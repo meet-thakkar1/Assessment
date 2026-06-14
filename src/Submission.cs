@@ -35,6 +35,6 @@ public class Submission
         var result =
             await _client.PostAsync(endpoint, content);
 
-        Console.WriteLine(result);
+        Console.WriteLine(result);  
     }
 }
