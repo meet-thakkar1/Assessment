@@ -1,0 +1,13 @@
+bin/
+obj/
+.vs/
+.vscode/
+
+.env
+
+data/raw/*
+data/decrypted/*
+data/logs/*
+!data/raw/.gitkeep
+!data/decrypted/.gitkeep
+!data/logs/.gitkeep
