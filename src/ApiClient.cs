@@ -25,7 +25,17 @@ public class ApiClient
 
         return await response.Content.ReadAsStringAsync();
     }
+public async Task<string> SendAsync(string endpoint)
+    {
+        var request = new HttpRequestMessage(
+    HttpMethod.Options,
+    endpoint);
+        var response = await _client.SendAsync(request);
 
+        await LogResponse(response);
+
+        return await response.Content.ReadAsStringAsync();
+    }
     public async Task<string> PostAsync(
         string endpoint,
         HttpContent content)

@@ -12,9 +12,19 @@ public class Discovery
         var endpoints = new[]
         {
             //"/api/v1/health",
-            "/api/v1/dataset",
-            "/api/v1/stats",
-            "/api/v1/dataset?batch=true&range=0-99"
+//             "/api/v1/key",
+// "/api/v1/key",
+// "/api/v1/decryption-key",
+// "/api/v1/keys",
+// "/api/v1/decrypt",
+"/api/v1/challenges",
+// "/api/v1/me",
+// "/api/v1/profile",
+// "/api/v1/info",
+// "/api/v1/help",
+// "/api/v1/docs"
+            //"/api/v1/stats",
+            //"/api/v1/dataset?batch=true&range=0-99"
             //"/api/v1/submit",
             // "/api/v1/data",
             // "/api/v1/records",
@@ -47,9 +57,15 @@ public class Discovery
                 Console.WriteLine(
                     $"\n Checking {endpoint}");
 
-                var result =
-                    await _client.GetAsync(endpoint+"?page=1&&page_size=500");
+                // var result =
+                //     await _client.GetAsync(endpoint+"?page=1&&page_size=500");
+ var result =
+                    await _client.SendAsync (endpoint+"/keys");
 
+// var result =
+//                     await _client.PostAsync(endpoint, new StringContent(
+//     "{}"));
+Console.WriteLine(result);
                 await FileHelper.SaveAsync(
                     $"data/raw/{Sanitize(endpoint)}.txt",
                     result);

@@ -32,19 +32,7 @@ for (int page = 1; page <= 5; page++)
     if (response != null)
     {
         allRecords.AddRange(response.Data);
-//         if(page==1){
-
-// var combined = string.Concat(allRecords);
-
-// var hash = SHA256.HashData(
-//     Encoding.UTF8.GetBytes(combined));
-
-// Console.WriteLine(Convert.ToHexString(hash).ToLower());
-//         }
     }
-
-
-    
 }
 
 
@@ -63,32 +51,3 @@ sha.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
 Console.WriteLine(hash);
 }
 }
-
-
-
-
-// using var sha = SHA256.Create();
-
-// foreach (var record in allRecords)
-// {
-//     var bytes = Convert.FromBase64String(record);
-//     sha.TransformBlock(
-//         bytes,
-//         0,
-//         bytes.Length,
-//         null,
-//         0);
-// }
-
-// sha.TransformFinalBlock(Array.Empty<byte>(), 0, 0);
-
-// Console.WriteLine(
-//     Convert.ToHexString(sha.Hash!).ToLower());
-
-//     var bytes = Convert.FromBase64String(allRecords[0]);
-
-// Console.WriteLine(bytes.Length);
-
-// Console.WriteLine(
-//     Convert.ToHexString(
-//         bytes.Take(32).ToArray()));
