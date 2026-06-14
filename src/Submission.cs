@@ -11,11 +11,11 @@ public class Submission
     }
 
     public async Task Submit(
-        string endpoint,
         string type,
         string value,
         string notes = "")
     {
+        string endpoint="/api/v1/submit";
         var payload = new
         {
             type,
